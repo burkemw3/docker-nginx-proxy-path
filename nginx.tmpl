@@ -34,6 +34,10 @@ upstream {{ $path }} {
 {{ end }}
 
 server {
+	listen              443 ssl;
+	ssl_certificate     /etc/nginx/ssl/themburkes.com.crt;
+	ssl_certificate_key /etc/nginx/ssl/themburkes.com.key;
+
 	gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
 
 	proxy_buffering off;
