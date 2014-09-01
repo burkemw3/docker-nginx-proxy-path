@@ -34,7 +34,16 @@ upstream {{ $path }} {
 {{ end }}
 
 server {
+	listen 80;
+	server_name www.themburkes.com;
+	return 301 https://www.themburkes.com$request_uri;
+}
+
+server {
 	listen              443 ssl;
+	ssl                 on;
+	server_name         www.themburkes.com;
+
 	ssl_certificate     /etc/nginx/ssl/themburkes.com.crt;
 	ssl_certificate_key /etc/nginx/ssl/themburkes.com.key;
 
